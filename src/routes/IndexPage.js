@@ -78,7 +78,7 @@ function IndexPage(props) {
     <div className={styles.normal}>
       <div className={styles.tableContainer}>
         <div className={styles.left}>
-          <h3 className={styles.title}>年级(选择年级，加载班级)</h3>
+          <h3 className={styles.title}>年级(点击行选择年级，加载班级)</h3>
           <Table 
             dataSource={grades}
             rowKey={record => record.id}
@@ -91,7 +91,7 @@ function IndexPage(props) {
           />
         </div>
         <div className={styles.right}>
-          <h3 className={styles.title}>班级(选择班级，加载班级详情可编辑)</h3>
+          <h3 className={styles.title}>班级(点击行选择班级，加载班级详情可编辑)</h3>
           <Table 
             dataSource={classes}
             rowKey={record => record.id}

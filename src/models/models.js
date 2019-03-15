@@ -1,8 +1,9 @@
-import { Model, attr, many, fk, oneToOne } from 'redux-orm';
+import { Model, attr, many, fk } from 'redux-orm';
 import PropTypes from 'prop-types';
 
 class CommonModel extends Model {
   static generate(newAttributes = {}) {
+    this.defaultProps = this.defaultProps || {};
     const combinedAttributes = {
       ...this.defaultProps,
       ...newAttributes,
