@@ -1,7 +1,16 @@
 import { Model, attr, many, fk, oneToOne } from 'redux-orm';
 import PropTypes from 'prop-types';
 
-export class Teacher extends Model {
+class CommonModel extends Model {
+  static generate(newAttributes = {}) {
+    const combinedAttributes = {
+      ...this.defaultProps,
+      ...newAttributes,
+    };
+    return this.create(combinedAttributes);
+  }
+}
+export class Teacher extends CommonModel {
   static modelName = 'Teacher';
   static fields = {
     name: attr(),
@@ -16,7 +25,7 @@ export class Teacher extends Model {
   };
 }
 
-export class Student extends Model {
+export class Student extends CommonModel {
   static modelName = 'Student';
   static fields = {
     name: attr(),
@@ -31,7 +40,7 @@ export class Student extends Model {
   };
 }
 
-export class Class extends Model {
+export class Class extends CommonModel {
   static modelName = 'Class';
 
   static fields = {
@@ -51,17 +60,9 @@ export class Class extends Model {
     teachers: [],
     students: [],
   }
-
-  static generate(newAttributes = {}) {
-    const combinedAttributes = {
-      ...this.defaultProps,
-      ...newAttributes,
-    };
-    return this.create(combinedAttributes);
-  }
 }
 
-export class Grade extends Model {
+export class Grade extends CommonModel {
   static modelName = 'Grade';
   static fields = {
     name: attr(),
@@ -76,13 +77,5 @@ export class Grade extends Model {
   static defaultProps = {
     name: '',
     classes: [],
-  }
-
-  static generate(newAttributes = {}) {
-    const combinedAttributes = {
-      ...this.defaultProps,
-      ...newAttributes,
-    };
-    return this.create(combinedAttributes);
   }
 }
