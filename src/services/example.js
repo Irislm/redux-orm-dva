@@ -17,6 +17,6 @@ export function fetchGrades() {
   return Promise.resolve(grades);
 }
 
-export function fetchClasses() {
-  return Promise.resolve(classes);
+export function fetchClasses(params = {}) {
+  return Promise.resolve(classes.filter(v => v.grade === params.id));
 }

@@ -60,16 +60,19 @@ export const students = [{
 export const classes = [{
   id: '1',
   name: '一年一班',
+  grade: '1',
   students: ['1', '2'],
   teachers: ['1', '2'],
 }, {
   id: '2',
+  grade: '1',
   name: '一年二班',
   students: ['3', '4'],
   teachers: ['3', '2'],
 }, {
   id: '3',
   name: '二年一班',
+  grade: '2',
   students: ['5', '6'],
   teachers: ['5', '4'],
 }];
